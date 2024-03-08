@@ -1,22 +1,15 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight text-center">
-            {{ __('Welcome to HireMe Company! We are delighted to welcome you as a valued member of our team, bringing your leadership and expertise to our organization. Together, lets drive success and innovation in every endeavor') }}
-        </h2>
-    </x-slot>
-
-    <div class="py-5">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    {{ __("You're logged in!") }}
-                </div>
-            </div>
-        </div>
-    </div>
-
+  <div class="py-5">
+      <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+          <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+              <div class="p-6 text-gray-900">
+                  {{ __("You're logged in!") }}
+              </div>
+          </div>
+      </div>
+  </div>
     <!-- Container for demo purpose -->
-<div class="container my-10 mx-auto md:px-6">
+{{-- <div class="container my-10 mx-auto md:px-6">
     <!-- Section: Design Block -->
     <section class="mb-32 text-center">
   
@@ -34,27 +27,28 @@
               </div>
             </div>
             <div class="p-6">
-                <h3 class="mb-4 text-2xl font-bold text-primary dark:text-primary-400">
-                    The platform statistics are as follows:
-                </h3>
-                <h5 class="mb-4 text-lg font-medium">
-                    Total events created: <span class="mb-4 text-lg font-medium text-blue-500">{{ $totalEvents }}</span>
-                </h5>
-                <h5 class="mb-4 text-lg font-medium">
-                    Total reservations made: <span class="mb-4 text-lg font-medium text-blue-500">{{ $totalReservations }}</span>
-                </h5>
-                <h5 class="mb-4 text-lg font-medium">
-                    Confirmed reservations: <span class="mb-4 text-lg font-medium text-blue-500">{{ $confirmedReservations }}</span>
-                </h5>                
-                <p class="text-neutral-500 dark:text-neutral-300">
-                    The platform is currently offering opportunities across various events with a total of <span class="text-red-500 dark:text-neutral-300">{{ $totalReservations }}</span> reservations made.
-                </p>
-              </div>
+              <h3 class="mb-4 text-2xl font-bold text-primary dark:text-primary-400">
+                  The platform statistics are as follows:
+              </h3>
+              <h5 class="mb-4 text-lg font-medium">
+                  Total events created: <span class="mb-4 text-lg font-medium text-blue-500">{{ $totalEvents }}</span>
+              </h5>
+              <h5 class="mb-4 text-lg font-medium">
+                  Total reservations made: <span class="mb-4 text-lg font-medium text-blue-500">{{ $totalReservations }}</span>
+              </h5>
+              <h5 class="mb-4 text-lg font-medium">
+                  Confirmed reservations: <span class="mb-4 text-lg font-medium text-blue-500">{{ $confirmedReservations }}</span>
+              </h5>                
+              <p class="text-neutral-500 dark:text-neutral-300">
+                  The platform is currently offering opportunities across various events with a total of <span class="text-red-500 dark:text-neutral-300">{{ $totalReservations }}</span> reservations made.
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </section>
     <!-- Section: Design Block -->
-  </div>
+  </div> --}}
   <!-- Container for demo purpose -->
-</x-app-layout>
+
+</x-app-layout>  

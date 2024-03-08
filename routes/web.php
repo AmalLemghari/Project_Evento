@@ -36,12 +36,12 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-Route::middleware(['auth', 'role:organiser'])->group(function(){
-    Route::get('/organiser/dashboard', [OrganiserController::class, 'OrganiserDashboard'])->name('organiser.dashboard');
+Route::middleware(['auth'])->group(function(){
+    Route::get('/organiser/displayEvents', [OrganiserController::class, 'organiser_dashboard'])->name('organiser.organiser_dashboard');
 }); 
 
-Route::middleware(['auth', 'role:admin'])->group(function(){
-    Route::get('/admin/dashboard', [AdminController::class, 'AdminDashboard'])->name('admin.dashboard');
+Route::middleware(['auth'])->group(function(){
+    Route::get('/admin/statistics', [AdminController::class, 'admin_dashboard'])->name('admin.admin_dashboard');
 });
 
 Route::post('/search', [SearchController::class, 'search'])->name('search');
@@ -49,7 +49,7 @@ Route::post('/search', [SearchController::class, 'search'])->name('search');
 Route::put('/user/update/photo', [ProfileController::class, 'updatePhoto'])->name('updatePhoto');
 
 Route::get('/myEvents', [EventController::class, 'myEvents'])->name('organiser.myEvents');
-Route::get('/organiser/displayEvents', [OrganiserController::class, 'organiser_dashboard'])->name('organiser.organiser_dashboard');
+// Route::get('/organiser/displayEvents', [OrganiserController::class, 'organiser_dashboard'])->name('organiser.organiser_dashboard');
 Route::get('/events/display/all', [EventController::class, 'displayEvents'])->name('displayEvents');
 Route::get('/createEvent', [EventController::class, 'createEvents'])->name('createEvents');
 Route::post('/createEvent/store', [EventController::class, 'store'])->name('createEvents.store');
@@ -58,16 +58,21 @@ Route::post('/updateEvent/edit{id}', [EventController::class, 'update'])->name('
 Route::delete('/deleteEvent{id}', [EventController::class, 'deleteEvent'])->name('eventDelete');
 Route::get('/organiser/eventsDetails{id}', [EventController::class, 'eventsDetails'])->name('eventsDetails');
 
-// Route::get('/admin-dashboard', [CategoryController::class, 'index'])->name('admin.dashboard');
-Route::get('/admin/displayCategories', [CategoryController::class, 'admin_dashboard'])->name('admin.admin_dashboard');
+Route::get('/categories', [CategoryController::class, 'categories'])->name('admin.categories');
+// Route::get('/admin/statistics', [AdminController::class, 'admin_dashboard'])->name('admin.admin_dashboard');
 Route::get('/categories/display/all', [CategoryController::class, 'dispalyCategories'])->name('dispalyCategories');
 Route::get('/createCategory', [CategoryController::class, 'createCategories'])->name('createCategories');
-Route::post('/createCategory/store', [CategoryController::class, 'store'])->name('createCategories.store');
+Route::post('/createCategory/store', [CategoryController::class, 'storeCategories'])->name('createCategories.store');
 Route::get('/updateCategory{id}', [CategoryController::class, 'updateCategories'])->name('updateCategories');
 Route::post('/updateCategory/edit{id}', [CategoryController::class, 'update'])->name('updateCategories.edit');
-Route::delete('/deleteCategory{id}', [CategoryController::class, 'delete'])->name('delete');
+Route::delete('/deleteCategory{id}', [CategoryController::class, 'deleteCategory'])->name('categoryDelete');
 
 Route::get('/user/apply{id}', [EventController::class, 'apply'])->name('apply');
 Route::post('/user/applyEvent', [EventController::class, 'applyForTheEvent'])->name('applyEvent');
 
 Route::get('/invoice', [InvoiceController::class, 'generate']);
+
+Route::get('/viewsEvents', [EventController::class, 'validationEvents'])->name('validationEvents');
+
+Route::get('/updateValidated{id}', [EventController::class, 'validatedEvent'])->name('validatedEvent');
+Route::get('/updateUnvalidated{id}', [EventController::class, 'unvalidatedEvent'])->name('unvalidatedEvent');

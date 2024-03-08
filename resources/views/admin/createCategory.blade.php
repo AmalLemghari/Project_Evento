@@ -1,4 +1,15 @@
-<!DOCTYPE html>
+<x-app-layout>
+    <div class="py-5">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 text-gray-900">
+                    {{ __("You're logged in!") }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{{-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,13 +18,13 @@
     <title>Create categories</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100">
+<body class="bg-gray-100"> --}}
     <!-- Main modal -->
     <div class="flex items-center justify-center min-h-screen">
 
         <div class="relative p-4 w-full max-w-md max-h-full">
             <!-- Modal content -->
-            <div class="relative bg-white rounded-lg shadow bg-blue-50">
+            <div class="relative bg-white rounded-lg shadow  bg-gray-100">
                 <!-- Modal header -->
                 <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t border-gray-600">
                     <h1 class="text-2xl font-semibold">
@@ -22,7 +33,7 @@
                         </span>
                     </h1> 
                 </div>
-                <form class="p-4 md:p-5" action="{{route('createCategories.store')}}" method="post">
+                <form class="p-4 md:p-5 bg-gray-100" action="{{route('createCategories.store')}}" method="post">
                     @csrf
                     <div class="grid gap-4 mb-4 grid-cols-2">
                         {{-- <input type="hidden" name="organiser_id" value="{{$organiser}}"> --}}
@@ -39,5 +50,7 @@
             </div>
         </div>
 </div>
-</body>
-</html>
+{{-- </body>
+</html> --}}
+
+</x-app-layout>

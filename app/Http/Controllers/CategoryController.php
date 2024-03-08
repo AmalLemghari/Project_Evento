@@ -17,28 +17,27 @@ class CategoryController extends Controller
     //     return view('admin.admin_dashboard', compact('category'));
     // }
 
-    public function admin_dashboard(){
-        $organiser = Auth::user()->id;
-        $cateegory = Category::with('users')->where('organiser_id', $organiser)->orderBy('updated_at', 'desc')->get();
+    public function categories(){
+        $categories = Category::orderBy('updated_at', 'desc')->get();
 
-        return view('admin.admin_dashboard', compact('cateegory'));
+        return view('admin.categories', compact('categories'));
     }
 
-    public function dispalyEvent(){
+    public function dispalyCategories(){
         $categories = Category::with('users')->get();
 
         return view('categories', compact('categories'));
     }
 
-    public function createEvents()
+    public function createCategories()
     {
-        $organiser = Auth::user()->id;
+        $admin = Auth::user()->id;
 
-        return view('admin.createCategory', compact('organiser'));
+        return view('admin.createCategory', compact('admin'));
  
     }
 
-    public function store(CategoryRequest $request)
+    public function storeCategories(CategoryRequest $request)
     {
         $validated = $request->validated();
         Category::create($validated);
@@ -62,7 +61,7 @@ class CategoryController extends Controller
         return redirect()->route('admin.admin_dashboard'); 
     }
 
-    public function delete($id)
+    public function deleteCategory($id)
     {
         $categories = Category::where('id', $id);
         $categories->delete();

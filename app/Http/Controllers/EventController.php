@@ -20,7 +20,7 @@ class EventController extends Controller
     }
 
     public function displayEvents(){
-        $events = Event::with('users')->get();
+        $events = Event::with('users')->where('status', 'Available')->where('validation', 'Validated')->get();
 
         return view('events', compact('events'));
     }
@@ -67,10 +67,38 @@ class EventController extends Controller
         return redirect()->back();
     }
 
-    public function eventsDetails($id){
+    public function eventsDetails($id)
+    {
         $events = Event::with('users')->with('categories')->where('id', $id)->get();
 
         return view('eventsDetails', compact('events'));
+    }
+
+    public function validationEvents()
+    {
+        $events = Event::where('validation', 'Unvalidated')->get();
+
+        return view('accesEvents', compact('events'));
+    }
+
+    public function validatedEvent($id)
+    {
+        $events = Event::where('id', $id);
+        $events->update([
+            'validation' => 'Validated',
+        ]);
+
+        return redirect()->back();
+    }
+
+    public function unvalidatedEvent($id)
+    {
+        $events = Event::where('id', $id);
+        $events->update([
+            'validation' => 'Unvalidated',
+        ]);
+
+        return redirect()->back();
     }
 
 }

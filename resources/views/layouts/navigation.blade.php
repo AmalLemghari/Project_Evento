@@ -12,69 +12,70 @@
 
                 <!-- Navigation Links -->
                 @if(Auth::user()->role == 'user')
-                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                        <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                            {{ __('Dashboard') }}
-                        </x-nav-link>
-                    </div>
-                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                        <x-nav-link :href="route('displayEvents')" :active="request()->routeIs('dashboard')">
-                            {{ __('All Events') }}
-                        </x-nav-link>
-                    </div>
-
-                @elseif(Auth::user()->role == 'organiser')
-                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                        <x-nav-link :href="route('organiser.organiser_dashboard')" :active="request()->routeIs('dashboard')">
-                            {{ __("Statistics") }}
-                        </x-nav-link>
-                    </div>
-                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                        <x-nav-link :href="route('displayEvents')" :active="request()->routeIs('dashboard')">
-                            {{ __("All Events") }}
-                        </x-nav-link>
-                    </div>    
-                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                        <x-nav-link :href="route('organiser.myEvents')" :active="request()->routeIs('dashboard')">
-                            {{ __('My Events') }}
-                        </x-nav-link>
-                    </div>
-                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                        <x-nav-link :href="route('createEvents')" :active="request()->routeIs('dashboard')">
-                            {{ __('New Events') }}
-                        </x-nav-link>
-                    </div>
-                    
-                @elseif(Auth::user()->role == 'admin')
-                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                        <x-nav-link :href="route('admin.admin_dashboard')" :active="request()->routeIs('dashboard')">
-                            {{ __("Statistics") }}
-                        </x-nav-link>
-                    </div>
-                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">    
-                        <x-nav-link :href="route('admin.categories')" :active="request()->routeIs('dashboard')">
-                            {{ __('Categories') }}
-                        </x-nav-link>
-                    </div>    
-                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                        <x-nav-link :href="route('displayEvents')" :active="request()->routeIs('dashboard')">
-                            {{ __('All Events') }}
-                        </x-nav-link>
-                    </div>
-                </div>
-                @endif
-            {{-- </div> --}}
-                {{-- <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                </div> --}}
-            </div>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('displayEvents')" :active="request()->routeIs('dashboard')">
+                        {{ __('All Events') }}
+                    </x-nav-link>
+                </div>
 
+                @elseif(Auth::user()->role == 'organiser')
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('organiser.organiser_dashboard')" :active="request()->routeIs('dashboard')">
+                        {{ __("Statistics") }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('displayEvents')" :active="request()->routeIs('dashboard')">
+                        {{ __("All Events") }}
+                    </x-nav-link>
+                </div>    
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('organiser.myEvents')" :active="request()->routeIs('dashboard')">
+                        {{ __('My Events') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('createEvents')" :active="request()->routeIs('dashboard')">
+                        {{ __('New Events') }}
+                    </x-nav-link>
+                </div>
+                @elseif(Auth::user()->role == 'admin')
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('admin.admin_dashboard')" :active="request()->routeIs('dashboard')">
+                        {{ __("Statistics") }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('displayEvents')" :active="request()->routeIs('dashboard')">
+                        {{ __('All Events') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('validationEvents')" :active="request()->routeIs('dashboard')">
+                        {{ __('Validation Page') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">    
+                    <x-nav-link :href="route('admin.categories')" :active="request()->routeIs('dashboard')">
+                        {{ __('Categories') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">    
+                    <x-nav-link :href="route('createCategories')" :active="request()->routeIs('dashboard')">
+                        {{ __('New Categories') }}
+                    </x-nav-link>
+                </div>
+                @endif
+            </div>
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">
                 <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-                    <img class="w-8 h-8 rounded-full" src="{{asset('' . Auth::user()->photo)}}" alt="Jese picture">
+                    <img class="w-8 h-8 rounded-full" src="{{asset('' . Auth::user()->photo )}}" alt="user picture">
                 </div>
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
@@ -120,7 +121,7 @@
         </div>
     </div>
 
-    <!-- Search -->
+    {{-- <!-- Search -->
     <form class="flex items-center justify-center mt-5" method="post" action="{{route('search')}}" name="search">  
         @csrf 
         <label for="simple-search" class="sr-only">Search</label>
@@ -138,8 +139,7 @@
             </svg>
             <span class="sr-only">Search</span>
         </button>
-    </form>
-
+    </form> --}}
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
@@ -174,3 +174,22 @@
         </div>
     </div>
 </nav>
+<!-- Search -->
+<form class="flex items-center justify-center mt-5" method="post" action="{{route('search')}}" name="search">  
+    @csrf 
+    <label for="simple-search" class="sr-only">Search</label>
+    <div class="relative w-3/4"> <!-- Adjust the width here, e.g., w-1/2, w-2/3, etc. -->
+        <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5v10M3 5a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 10a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm12 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm0 0V6a3 3 0 0 0-3-3H9m1.5-2-2 2 2 2"/>
+            </svg>
+        </div>
+        <input type="search" name="search" value="{{request()->search ?? ''}}" class="search-input bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-black block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-black dark:focus:border-black" placeholder="Search ..." required>
+    </div>
+    <button type="submit" class="p-2.5 ms-2 text-sm font-medium text-white bg-black rounded-lg border border-orange-600 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-orange-300 dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800">
+        <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+        </svg>
+        <span class="sr-only">Search</span>
+    </button>
+</form>
